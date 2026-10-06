@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İngilizce Ders Materyalleri & Çalışma Kağıtları Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome İkonları -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header / Navigasyon -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-graduation-cap"></i> English Hub
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#classes">Sınıflar</a></li>
+                    <li><a href="#unit-section">Üniteler</a></li>
+                    <li><a href="#worksheets">Çalışma Kağıtları</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Bölümü -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Ortaokul İngilizce Ders Materyalleri Portalına Hoş Geldiniz!</h1>
+            <p>5, 6, 7 ve 8. sınıf seviyeleri ve tüm üniteler için hazırlanan ders notları, kelime listeleri ve PDF çalışma kağıtlarını sitede inceleyin ve indirin.</p>
+            <a href="#classes" class="btn-primary">Sınıf Seçin <i class="fa-solid fa-arrow-down"></i></a>
+        </div>
+    </section>
+
+    <!-- Sınıf Kartları -->
+    <section id="classes" class="classes-section container">
+        <h2 class="section-title">Sınıf Seviyenizi Seçin</h2>
+        <p class="section-subtitle">Üniteleri görmek için bir sınıf kartına tıklayın.</p>
+        <div class="cards-grid">
+            
+            <!-- 5. Sınıf -->
+            <div class="card card-5" onclick="selectGrade('5')">
+                <div class="card-icon">
+                    <i class="fa-solid fa-child-reaching"></i>
+                </div>
+                <h3>5. Sınıf</h3>
+                <p>10 Ünite — Temel İngilizce kavramları ve alıştırmalar.</p>
+                <span class="card-btn">Üniteleri Göster <i class="fa-solid fa-chevron-right"></i></span>
+            </div>
+
+            <!-- 6. Sınıf -->
+            <div class="card card-6" onclick="selectGrade('6')">
+                <div class="card-icon">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                </div>
+                <h3>6. Sınıf</h3>
+                <p>10 Ünite — Okuma metinleri ve gramer föyleri.</p>
+                <span class="card-btn">Üniteleri Göster <i class="fa-solid fa-chevron-right"></i></span>
+            </div>
+
+            <!-- 7. Sınıf -->
+            <div class="card card-7" onclick="selectGrade('7')">
+                <div class="card-icon">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+                <h3>7. Sınıf</h3>
+                <p>10 Ünite — Konu anlatım föyleri ve etkinlikler.</p>
+                <span class="card-btn">Üniteleri Göster <i class="fa-solid fa-chevron-right"></i></span>
+            </div>
+
+            <!-- 8. Sınıf (LGS) -->
+            <div class="card card-8" onclick="selectGrade('8')">
+                <div class="card-icon">
+                    <i class="fa-solid fa-award"></i>
+                </div>
+                <h3>8. Sınıf (LGS)</h3>
+                <p>10 Ünite — LGS deneme sınavları ve kelime listeleri.</p>
+                <span class="card-btn">Üniteleri Göster <i class="fa-solid fa-chevron-right"></i></span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Görsel ve Modern Ünite Seçim Bölümü -->
+    <section id="unit-section" class="unit-section container">
+        <div class="unit-header">
+            <div class="unit-title-group">
+                <span class="unit-badge-tag"><i class="fa-solid fa-layer-group"></i> ÜNİTE KATALOĞU</span>
+                <h2 class="section-title" id="unitTitle"><span id="selectedGradeText">5. Sınıf</span> Üniteleri</h2>
+                <p class="section-subtitle">Aşağıdaki ünite kartlarına tıklayarak o üniteye ait ders notu ve testleri filtreleyin.</p>
+            </div>
+        </div>
+
+        <div class="unit-grid" id="unitGrid">
+            <!-- Görsel ünite kartları JavaScript ile dinamik oluşturulacaktır -->
+        </div>
+    </section>
+
+    <!-- PDF Çalışma Kağıtları Listesi -->
+    <section id="worksheets" class="worksheets-section container">
+        <div class="worksheets-header">
+            <h2 class="section-title">Çalışma Kağıtları & PDF Dosyaları</h2>
+            <div class="active-filter-badge" id="activeFilterBadge">
+                <i class="fa-solid fa-filter"></i> Filtre: Tüm Materyaller
+            </div>
+        </div>
+
+        <div class="pdf-list" id="pdfContainer">
+            
+            <!-- 5. Sınıf Örnek PDF'leri -->
+            <div class="pdf-item" data-grade="5" data-unit="1">
+                <div class="pdf-info">
+                    <i class="fa-solid fa-file-pdf pdf-icon"></i>
+                    <div>
+                        <h4>Unit 1: Hello - Vocabulary & Worksheet</h4>
+                        <span class="badge badge-5">5. Sınıf</span>
+                        <span class="badge badge-unit">1. Ünite</span>
+                    </div>
+                </div>
+                <button class="pdf-view-btn" onclick="openPdfModal('pdf/5_Sinif_Unite1_Hello.pdf', 'Unit 1: Hello - Vocabulary & Worksheet')">
+                    <i class="fa-solid fa-eye"></i> İncele & Görselleştir
+                </button>
+            </div>
+
+            <div class="pdf-item" data-grade="5" data-unit="2">
+                <div class="pdf-info">
+                    <i class="fa-solid fa-file-pdf pdf-icon"></i>
+                    <div>
+                        <h4>Unit 2: My Town - Places and Directions Activity</h4>
+                        <span class="badge badge-5">5. Sınıf</span>
+                        <span class="badge badge-unit">2. Ünite</span>
+                    </div>
+                </div>
+                <button class="pdf-view-btn" onclick="openPdfModal('pdf/5_Sinif_Unite2_My_Town.pdf', 'Unit 2: My Town - Places and Directions Activity')">
+                    <i class="fa-solid fa-eye"></i> İncele & Görselleştir
+                </button>
+            </div>
+
+            <!-- 6. Sınıf Örnek PDF'leri -->
+            <div class="pdf-item" data-grade="6" data-unit="1">
+                <div class="pdf-info">
+                    <i class="fa-solid fa-file-pdf pdf-icon"></i>
+                    <div>
+                        <h4>Unit 1: Life - Daily Routine Worksheets</h4>
+                        <span class="badge badge-6">6. Sınıf</span>
+                        <span class="badge badge-unit">1. Ünite</span>
+                    </div>
+                </div>
+                <button class="pdf-view-btn" onclick="openPdfModal('pdf/6_Sinif_Unite1_Life.pdf', 'Unit 1: Life - Daily Routine Worksheets')">
+                    <i class="fa-solid fa-eye"></i> İncele & Görselleştir
+                </button>
+            </div>
+
+            <div class="pdf-item" data-grade="6" data-unit="2">
+                <div class="pdf-info">
+                    <i class="fa-solid fa-file-pdf pdf-icon"></i>
+                    <div>
+                        <h4>Unit 2: Yummy Breakfast - Food & Drinks Test</h4>
+                        <span class="badge badge-6">6. Sınıf</span>
+                        <span class="badge badge-unit">2. Ünite</span>
+                    </div>
+                </div>
+                <button class="pdf-view-btn" onclick="openPdfModal('pdf/6_Sinif_Unite2_Yummy_Breakfast.pdf', 'Unit 2: Yummy Breakfast - Food & Drinks Test')">
+                    <i class="fa-solid fa-eye"></i> İncele & Görselleştir
+                </button>
+            </div>
+
+            <!-- 7. Sınıf Örnek PDF'leri -->
+            <div class="pdf-item" data-grade="7" data-unit="1">
+                <div class="pdf-info">
+                    <i class="fa-solid fa-file-pdf pdf-icon"></i>
+                    <div>
+                        <h4>Unit 1: Appearance and Personality - Describing People</h4>
+                        <span class="badge badge-7">7. Sınıf</span>
+                        <span class="badge badge-unit">1. Ünite</span>
+                    </div>
+                </div>
+                <button class="pdf-view-btn" onclick="openPdfModal('pdf/7_Sinif_Unite1_Appearance.pdf', 'Unit 1: Appearance and Personality - Describing People')">
+                    <i class="fa-solid fa-eye"></i> İncele & Görselleştir
+                </button>
+            </div>
+
+            <!-- 8. Sınıf Örnek PDF'leri -->
+            <div class="pdf-item" data-grade="8" data-unit="1">
+                <div class="pdf-info">
+                    <i class="fa-solid fa-file-pdf pdf-icon"></i>
+                    <div>
+                        <h4>Unit 1: Friendship - LGS Revision & Soru Bankası</h4>
+                        <span class="badge badge-8">8. Sınıf</span>
+                        <span class="badge badge-unit">1. Ünite</span>
+                    </div>
+                </div>
+                <button class="pdf-view-btn" onclick="openPdfModal('pdf/8_Sinif_Unite1_Friendship.pdf', 'Unit 1: Friendship - LGS Revision & Soru Bankası')">
+                    <i class="fa-solid fa-eye"></i> İncele & Görselleştir
+                </button>
+            </div>
+
+            <div class="pdf-item" data-grade="8" data-unit="2">
+                <div class="pdf-info">
+                    <i class="fa-solid fa-file-pdf pdf-icon"></i>
+                    <div>
+                        <h4>Unit 2: Teen Life - Reading Comprehension & Test</h4>
+                        <span class="badge badge-8">8. Sınıf</span>
+                        <span class="badge badge-unit">2. Ünite</span>
+                    </div>
+                </div>
+                <button class="pdf-view-btn" onclick="openPdfModal('pdf/8_Sinif_Unite2_Teen_Life.pdf', 'Unit 2: Teen Life - Reading Comprehension & Test')">
+                    <i class="fa-solid fa-eye"></i> İncele & Görselleştir
+                </button>
+            </div>
+
+        </div>
+
+        <div id="noResults" class="no-results" style="display: none;">
+            <i class="fa-solid fa-folder-open"></i>
+            <p>Bu ünite için henüz eklenmiş çalışma kağıdı bulunamadı. Lütfen `pdf/` klasörüne PDF dosyanızı yükleyip index.html dosyasına ekleyiniz.</p>
+        </div>
+    </section>
+
+    <!-- Google Docs Viewer Destekli PDF Önizleme Modalı -->
+    <div id="pdfModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalPdfTitle"><i class="fa-solid fa-file-pdf"></i> PDF Önizleme</h3>
+                <button class="modal-close-btn" onclick="closePdfModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe id="pdfFrame" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closePdfModal()">Kapat</button>
+                <a id="modalDownloadBtn" href="#" download class="pdf-download-btn">
+                    <i class="fa-solid fa-download"></i> Bilgisayara İndir
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 İngilizce Öğretmeni Portal. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
